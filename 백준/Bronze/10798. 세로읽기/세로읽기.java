@@ -12,15 +12,12 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             String str = br.readLine();
             for (int j = 0; j <str.length() ; j++) {
-                word[i][j] = str.split("")[j].charAt(0);
-            }
-            for (int j = str.length(); j < 15; j++) {
-                word[i][j] = (char) -1;
+                word[i][j] = str.charAt(j);
             }
         }
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 5; j++) {
-                if (word[j][i] != (char) -1) {
+                if (word[j][i] != '\0') {
                     sb.append(word[j][i]);
                 }
             }

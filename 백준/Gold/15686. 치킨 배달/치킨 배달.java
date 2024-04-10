@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -60,11 +59,9 @@ public class Main {
             return;
         }
         for (int i = start; i < chicken.size(); i++) {
-            if (!open[i]) {
                 open[i] = true;
                 dfs(i + 1, depth + 1);
                 open[i] = false;
-            }
         }
     }
 }

@@ -12,37 +12,36 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
-        isPrime = new boolean[n+1];
+        isPrime = new boolean[n + 1];
         prime();
-        for (int i = 2; i <= n ; i++) {
+        for (int i = 2; i <= n; i++) {
             if (!isPrime[i]) {
                 primeNumber.add(i);
             }
         }
-        recur(0);
-        System.out.println(cnt);
-    }
-
-    private static void recur(int sum) {
-        for (Integer p : primeNumber) {
-            sum += p;
-            if (sum == n) {
-                cnt++;
-            }
-            if (sum > n) {
-                primeNumber.remove(0);
-                recur(0);
-                return;
+        int size = primeNumber.size();
+        for (int i = 0; i < size; i++) {
+            int sum = 0;
+            for (int j = i; j < size; j++) {
+                sum += primeNumber.get(j);
+                if (sum > n) {
+                    break;
+                }
+                if (sum == n) {
+                    cnt++;
+                    break;
+                }
             }
         }
+        System.out.println(cnt);
     }
 
     private static void prime() {
         isPrime[0] = isPrime[1] = true;
-        for (int i = 2; i*i <= n ; i++) {
+        for (int i = 2; i * i <= n; i++) {
             if (!isPrime[i]) {
-                for (int j = i*i; j <=n ; j+=i) {
-                    isPrime[j]=true;
+                for (int j = i * i; j <= n; j += i) {
+                    isPrime[j] = true;
                 }
             }
         }

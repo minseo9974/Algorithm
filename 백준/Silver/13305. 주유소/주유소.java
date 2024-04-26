@@ -7,7 +7,6 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
         int[] distance = new int[n - 1];
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -21,12 +20,11 @@ public class Main {
         }
         int min = liter[0];
         long sum = 0;
-        sum += (long) min * distance[0];
-        for (int i = 1; i < n - 1; i++) {
-            if (liter[i] < liter[i - 1]) {
+        for (int i = 0; i < n - 1; i++) {
+            if (liter[i] < min) {
                 min = liter[i];
             }
-            sum += (long) min * distance[i];
+            sum += (min * distance[i]);
         }
         System.out.println(sum);
     }

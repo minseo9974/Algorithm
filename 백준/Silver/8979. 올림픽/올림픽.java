@@ -26,10 +26,9 @@ public class Main {
                 System.out.println(cnt);
                 return;
             }
-            if (i != n-1 && olimpics[i].isEqual(olimpics[i + 1])) {
-                continue;
+            if (i != n - 1 && !olimpics[i].isEqual(olimpics[i + 1])) {
+                cnt = i + 2;
             }
-            cnt++;
         }
     }
 }
